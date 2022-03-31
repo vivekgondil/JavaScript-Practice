@@ -1,28 +1,21 @@
+const nav = document.createElement("ul");
+nav.classList.add("navbar");
 
-const pant = {
-    type: "Jeans",
-    noPockets: 2,
-    color: "Blue",
-    pockets: {
-        pocket1: ["hankey", { size: "90 ml", isFilled: true }],
-        pocket2: ["Mobile", "keys"]
-    },
-    emptyPockets: function () {
-        for (const key in pant.pockets) {
-            pant.pockets[key] = [];
-        }
-    }
-}
+let navelements = ["Home", "About", "Register", "Search", "Contact"]
 
+navelements.forEach((navElement) => {
+    let link = document.createElement("a");
+    link.setAttribute("href", "#")
+    link.innerHTML = navElement;
+    const li = document.createElement("li")
+    li.append(link);
+    nav.append(li)
+})
 const app = document.getElementById("app");
-app.innerHTML = `
-<div>
-<h3>${pant.type}</h3>
-<ul>
-  <li>Number of Pockets: ${pant.noPockets}</li>
-  <li>Color: ${pant.color}</li>
-  <li> Pockets content: ${pant.pockets.pocket2}</li> 
-</ul>
-</div>
-`
+app.append(nav);
 
+let nodeListLi = document.querySelectorAll("li")
+nodeListLi.forEach((li) => {
+    li.style = "color: red"
+    li.style = "background: lightblue"
+})
